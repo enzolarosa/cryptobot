@@ -18,6 +18,8 @@ class CreateArbitrageDataTable extends Migration
             $table->uuid('execution');
 
             $table->string('coin')->nullable();
+            $table->string('coin_from')->nullable();
+            $table->string('coin_to')->nullable();
             $table->string('buy_exchange')->nullable();
             $table->string('buy_price')->nullable();
             $table->string('sell_exchange')->nullable();
