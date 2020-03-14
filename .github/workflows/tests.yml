@@ -1,0 +1,65 @@
+name: Tests (PHP)
+on:
+  push:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  tests:
+    name: Run tests
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_DATABASE: lotto
+        ports:
+          - 3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Cache composer dependecies
+        uses: actions/cache@v1
+        with:
+          path: vendor
+          key: composer-${{hashFiles('composer.lock')}}
+      - name: Run composer install
+        run: composer install -n --prefer-dist
+        env:
+          APP_ENV: testing
+      - name: Prepare Laravel Application
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+      - name: Cache yarn dependencies
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: yarn-${{ hashFiles('yarn.lock')}}
+      - name: Run yarn
+        run: yarn && yarn dev
+      - name: Run tests
+        run: php artisan test
+        env:
+          APP_ENV: testing
+          DB_NAME: lotto
+          DB_CONNECTION: mysql
+          DB_PASSWORD:
+          DB_USER: root
+      - name: Upload artifacts
+        uses: actions/upload-artifact@master
+        if: failure()
+        with:
+          name: Logs
+          path: ./storage/logs
+      - name: action-slack
+        uses: 8398a7/action-slack@v2
+        if: failure()
+        with:
+          status: ${{ job.status }}
+          author_name: ${{ github.actor }}
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

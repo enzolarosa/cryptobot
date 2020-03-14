@@ -1,0 +1,17 @@
+parameters:
+  git_dir: .
+  bin_dir: vendor/bin
+  tasks:
+    phpcsfixer:
+      verbose: true
+    git_branch_name:
+      whitelist:
+        - "feature/*"
+      blacklist:
+        - "develop"
+        - "master"
+      allow_detached_head: true
+    git_commit_message:
+      allow_empty_message: false
+      case_insensitive: true
+      multiline: true
