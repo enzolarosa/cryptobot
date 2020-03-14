@@ -108,5 +108,4 @@ class UpdateArbitrageData extends Command
 
         $this->info("Crawler job finish");
     }
-
 }

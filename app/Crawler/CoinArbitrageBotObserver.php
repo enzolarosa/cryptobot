@@ -83,4 +83,3 @@ class CoinArbitrageBotObserver extends CrawlObserver
         return Str::substr(Str::snake(str_replace("%", "", $field)), 0, 64);
     }
 }
-

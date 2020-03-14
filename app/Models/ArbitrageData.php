@@ -15,5 +15,4 @@ class ArbitrageData extends Model
         'sell_price',
         'profit',
     ];
-
 }
