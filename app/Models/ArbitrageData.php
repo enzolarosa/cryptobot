@@ -5,8 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class ArbitrageData
- * @package App\Models
+ * Class ArbitrageData.
  *
  * @property string $execution
  * @property string coin_from

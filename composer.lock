@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c684f22782f2c7c70431f6ba51765075",
+    "content-hash": "112352ab04e074ba4d9ce2fe84f5a1dc",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1209,16 +1209,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v7.1.2",
+            "version": "v7.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "951e10fbfed2a2d547c3fc33853125b4a619e01a"
+                "reference": "42b311862adfc36b8628ac62d226a3682f463439"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/951e10fbfed2a2d547c3fc33853125b4a619e01a",
-                "reference": "951e10fbfed2a2d547c3fc33853125b4a619e01a",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/42b311862adfc36b8628ac62d226a3682f463439",
+                "reference": "42b311862adfc36b8628ac62d226a3682f463439",
                 "shasum": ""
             },
             "require": {
@@ -1356,7 +1356,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2020-03-13T13:52:44+00:00"
+            "time": "2020-03-14T14:33:32+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -7321,7 +7321,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.2.5"
+        "php": "^7.4"
     },
     "platform-dev": [],
     "plugin-api-version": "1.1.0"

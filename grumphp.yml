@@ -2,8 +2,6 @@ parameters:
   git_dir: .
   bin_dir: vendor/bin
   tasks:
-    phpcsfixer:
-      verbose: true
     git_branch_name:
       whitelist:
         - "feature/*"
