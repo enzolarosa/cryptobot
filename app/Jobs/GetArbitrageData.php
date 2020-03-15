@@ -34,6 +34,7 @@ class GetArbitrageData implements ShouldQueue
     public function setCode(string $code): self
     {
         $this->code = $code;
+
         return $this;
     }
 
@@ -53,6 +54,7 @@ class GetArbitrageData implements ShouldQueue
     public function setUrl(string $url): self
     {
         $this->url = $url;
+
         return $this;
     }
 

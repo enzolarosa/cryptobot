@@ -31,11 +31,12 @@ class CoinArbitrageBotObserver extends CrawlObserver
     public function setCode(string $code): self
     {
         $this->code = $code;
+
         return $this;
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function crawled(UriInterface $url, ResponseInterface $response, ?UriInterface $foundOnUrl = null)
     {
@@ -43,7 +44,7 @@ class CoinArbitrageBotObserver extends CrawlObserver
         @$doc->loadHTML($response->getBody());
         $table = $doc->getElementById('arbi');
 
-        $rows = $table->getElementsByTagName("tr");
+        $rows = $table->getElementsByTagName('tr');
         $header = [];
         foreach ($rows as $i => $row) {
             $cells = $row->getElementsByTagName('td');
@@ -66,11 +67,11 @@ class CoinArbitrageBotObserver extends CrawlObserver
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function crawlFailed(UriInterface $url, RequestException $requestException, ?UriInterface $foundOnUrl = null)
     {
-        dd("crawlFail", $url, $requestException, $foundOnUrl);
+        dd('crawlFail', $url, $requestException, $foundOnUrl);
     }
 
     /**
@@ -80,6 +81,6 @@ class CoinArbitrageBotObserver extends CrawlObserver
      */
     protected function fieldName(string $field): string
     {
-        return Str::substr(Str::snake(str_replace("%", "", $field)), 0, 64);
+        return Str::substr(Str::snake(str_replace('%', '', $field)), 0, 64);
     }
 }
