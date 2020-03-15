@@ -1,22 +1,18 @@
 <?php
 
+// https://github.com/binance-exchange/php-binance-api
+
 namespace App\Markets;
 
-class CoinbasePro extends Market
+use Throwable;
+
+class Binance extends Market
 {
-    const BASE = 'https://api.pro.coinbase.com';
-
-    public function __construct()
-    {
-        parent::__construct();
-        $this->setBase(self::BASE);
-    }
-
     /**
      * Authenticate to Market, get the token to perform any operation.
      *
      * @return string
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function authenticate(): string
     {

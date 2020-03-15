@@ -10,4 +10,8 @@ interface Market
      * @return string
      */
     public function authenticate(): string;
+
+    public function move($buy, $sell): bool;
+
+    public function transfer($from, $to): bool;
 }
